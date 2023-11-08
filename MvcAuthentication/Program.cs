@@ -1,5 +1,6 @@
 using EmailService;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MvcAuthentication.CustomTokenProviders;
@@ -52,12 +53,11 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddAuthentication("cookie")
-    .AddCookie("cookie")
-    .AddGoogle(googleOptions =>
+    //.AddCookie("cookie")
+    .AddGoogle(GoogleDefaults.AuthenticationScheme,googleOptions =>
     {
         googleOptions.ClientId = "525656628108-600vlq66hvukemhp5o1l1ret5e0olpkq.apps.googleusercontent.com";
         googleOptions.ClientSecret = "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";
-        googleOptions.CallbackPath = "/Account/ExternalLoginCallback/";
     })
     .AddOAuth("github", o =>
     {
