@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+using System.Text.Json;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +40,8 @@ builder.Services.AddAuthentication("cookie")
         googleOptions.ClientId = "525656628108-600vlq66hvukemhp5o1l1ret5e0olpkq.apps.googleusercontent.com";
         googleOptions.ClientSecret = "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";
     });
+
+
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
